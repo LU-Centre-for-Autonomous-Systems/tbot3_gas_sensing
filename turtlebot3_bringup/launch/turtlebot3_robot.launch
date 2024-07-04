@@ -1,17 +1,33 @@
 <launch>
-  <arg name="multi_robot_name" default=""/>
-  <arg name="set_lidar_frame_id" default="base_scan"/>
+  <arg name="multi_robot_name" default="$(optenv bot_ns)"/>
+  <arg name="set_lidar_frame_id" default="$(optenv bot_ns)/base_scan"/>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="prefix" default="$(optenv bot_ns)"/>
 
-  <include file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch">
-    <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
-  </include>
-  <include file="$(find turtlebot3_bringup)/launch/turtlebot3_lidar.launch">
-    <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
-  </include>
-  <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
+  
+  <group if="$(eval arg('prefix') == '')"> 
+    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch">
+      <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
+    </include>
+    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_rplidar.launch">
+      <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
+      <arg name="anglecomp" value="true"/>
+    </include>
+    <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
+    <node pkg="tf" type="static_transform_publisher" name="static_tf_foot2scan" args="0 0 0 0 0 0 1 $(optenv bot_ns)/base_foorprint $(optenv bot_ns)/base_scan 10"/>
+    <node pkg="cozir" type="cozirSensor.py" name="cozirSensor" output="screen" args="'filtered' 16"/> 
+  </group>
 
-  <group if = "$(eval model == 'waffle_pi')">
-    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_rpicamera.launch"/>
+  <group ns="$(optenv bot_ns)" unless="$(eval arg('prefix') == '')">
+    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch">
+      <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
+    </include>
+    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_rplidar.launch">
+      <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
+      <arg name="anglecomp" value="true"/>
+    </include>
+    <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
+    <node pkg="tf" type="static_transform_publisher" name="static_tf_foot2scan" args="0 0 0 0 0 0 1 $(optenv bot_ns)/base_footprint $(optenv bot_ns)/base_scan 10"/>
+    <node pkg="cozir" type="cozirSensor.py" name="cozirSensor" output="screen" args="'filtered' 16"/>
   </group>
 </launch>
