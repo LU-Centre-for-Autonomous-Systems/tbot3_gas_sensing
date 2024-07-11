@@ -1,5 +1,5 @@
 <launch>
 
-  <node pkg="cozir" type="cozirSensor.py" name="cozirSensor" output="screen" args="filtered 16"/>
+  <node pkg="cozir_ros" type="cozirSensor.py" name="cozirSensor" output="screen" args="filtered 16"/>
 
 </launch>

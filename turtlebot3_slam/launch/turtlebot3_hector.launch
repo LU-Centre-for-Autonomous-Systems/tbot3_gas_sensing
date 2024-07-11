@@ -8,7 +8,7 @@
   <arg name="scan_topic" default="$(optenv bot_ns  )/scan"/>
   <arg name="map_size" default="2048"/>
   <arg name="pub_map_odom_transform" default="true"/>
-  <arg name="tf_map_scanmatch_transform_frame_name" default="scanmatcher_frame"/>
+  <arg name="tf_map_scanmatch_transform_frame_name" default="$(optenv bot_ns )/scanmatcher_frame"/>
 
   <!-- Hector mapping -->
   <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen">

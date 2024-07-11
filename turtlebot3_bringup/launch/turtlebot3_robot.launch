@@ -15,7 +15,7 @@
     </include>
     <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
     <node pkg="tf" type="static_transform_publisher" name="static_tf_foot2scan" args="0 0 0 0 0 0 1 $(optenv bot_ns)/base_foorprint $(optenv bot_ns)/base_scan 10"/>
-    <node pkg="cozir" type="cozirSensor.py" name="cozirSensor" output="screen" args="'filtered' 16"/> 
+    <node pkg="cozir_ros" type="cozirSensor.py" name="cozirSensor" output="screen" args="'filtered' 16"/> 
   </group>
 
   <group ns="$(optenv bot_ns)" unless="$(eval arg('prefix') == '')">
@@ -28,6 +28,6 @@
     </include>
     <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
     <node pkg="tf" type="static_transform_publisher" name="static_tf_foot2scan" args="0 0 0 0 0 0 1 $(optenv bot_ns)/base_footprint $(optenv bot_ns)/base_scan 10"/>
-    <node pkg="cozir" type="cozirSensor.py" name="cozirSensor" output="screen" args="'filtered' 16"/>
+    <node pkg="cozir_ros" type="cozirSensor.py" name="cozirSensor" output="screen" args="'filtered' 16"/>
   </group>
 </launch>
