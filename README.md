@@ -1,5 +1,5 @@
 # TurtleBot3
-<img src="https://github.com/ROBOTIS-GIT/emanual/blob/master/assets/images/platform/turtlebot3/logo_turtlebot3.png" width="300"><img src="https://github.com/ROBOTIS-GIT/emanual/blob/master/assets/images/platform/turtlebot3/logo_turtlebot3.png" width="300">
+<img src="https://github.com/ROBOTIS-GIT/emanual/blob/master/assets/images/platform/turtlebot3/logo_turtlebot3.png" width="300"><img src="University_logo.png" width="300">
 
 [![noetic-devel Status](https://github.com/ROBOTIS-GIT/turtlebot3/workflows/noetic-devel/badge.svg)](https://github.com/LU-Centre-for-Autonomous-Systems/tbot3_gas_sensing/edit/noetic-devel)
 
