@@ -31,19 +31,19 @@ In order to install the ROS package for gas sensing using a turtlebot3 equipped 
 2. Change directory to the `src` folder in your catkin workspace `catkin_ws`
 
 3. Clone the ROS package to interface and publish the COZIR-AH sensor
-	```
-	git clone https://github.com/LU-Centre-for-Autonomous-Systems/ros-cozir-co2sensor.git
-	```
+```
+git clone https://github.com/LU-Centre-for-Autonomous-Systems/ros-cozir-co2sensor.git
+```
 
 4. Clone the RP-LIDAR package using the following 
-	```
-	git clone https://github.com/Slamtec/rplidar_ros.git
-	```
+```
+git clone https://github.com/Slamtec/rplidar_ros.git
+```
 
 5.  Clone the tbot3-gas-sensing package
-	```
-	git clone -b noetic-devel https://github.com/LU-Centre-for-Autonomous-Systems/tbot3_gas_sensing.git
-	```
+```
+git clone -b noetic-devel https://github.com/LU-Centre-for-Autonomous-Systems/tbot3_gas_sensing.git
+```
 
 6. Return to the root `catkin_ws` folder and `catkin_make` your workspace
 
@@ -51,23 +51,23 @@ In order to install the ROS package for gas sensing using a turtlebot3 equipped 
 In order to run the scripts/launch files from the previously cloned ROS packages, certain environment variables about the RP-Lidar and the Turtlebots are required to be added to your `.bashrc` script.
 
 1. open the `.bashrc` script
-	```
-	nano ~/.bashrc
-	```
+```
+nano ~/.bashrc
+```
 
 2. add the following lines to the end of the script
-	```
-	export TURTLEBOT3_MODEL=<burger or waffle>
-	export rplidar_baudrate= <baudrate-of-rplidar-model>
-	export bot_ns=<add-turtlebot-namespace>
-	```
-	where `baudrate` is 115200 for RP-Lidar model A2M6 or A2M8 and 256000 for model A2M7 or A3, and `bot_ns` is the name the desired namespace associate with the Turtlebot3. Note that this name space is used in all the launch files associate with this ROS package, both for name spacing topics and the TF tree. For scenarios with no namespace, simply comment out the line exporting the `bot_ns` environmental variable and source your `~/.bashrc` before running the launch files.
+```
+export TURTLEBOT3_MODEL=<burger or waffle>
+export rplidar_baudrate= <baudrate-of-rplidar-model>
+export bot_ns=<add-turtlebot-namespace>
+```
+where `baudrate` is 115200 for RP-Lidar model A2M6 or A2M8 and 256000 for model A2M7 or A3, and `bot_ns` is the name the desired namespace associate with the Turtlebot3. Note that this name space is used in all the launch files associate with this ROS package, both for name spacing topics and the TF tree. For scenarios with no namespace, simply comment out the line exporting the `bot_ns` environmental variable and source your `~/.bashrc` before running the launch files.
 
 # User Instructions
 
 In order to launch a turtlebot3 equipped with a COZIR-A co2 sensor and RP-LIDAR, the user needs to launch the `turtlebot3_robot.launch` file using
 	
-	```
-	roslaunch turtlebot3_bringup turtlebot3_robot.launch
-	```
+```
+roslaunch turtlebot3_bringup turtlebot3_robot.launch
+```
 	
