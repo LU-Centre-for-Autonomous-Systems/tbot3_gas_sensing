@@ -45,7 +45,7 @@ In order to install the ROS package for gas sensing using a turtlebot3 equipped 
 	git clone -b noetic-devel https://github.com/LU-Centre-for-Autonomous-Systems/tbot3_gas_sensing.git
 	```
 
-6. Return to the root `catkin_ws` folder and '`catkin_make` the cloned ROS packages
+6. Return to the root `catkin_ws` folder and `catkin_make` your workspace
 
 # Configuring the Environment Variables
 In order to run the scripts/launch files from the previously cloned ROS packages, certain environment variables about the RP-Lidar and the Turtlebots are required to be added to your `.bashrc` script.
