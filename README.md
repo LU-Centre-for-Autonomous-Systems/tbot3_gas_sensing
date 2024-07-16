@@ -66,6 +66,7 @@ In order to run the scripts/launch files from the previously cloned ROS packages
 # User Instructions
 
 In order to launch a turtlebot3 equipped with a COZIR-A co2 sensor and RP-LIDAR, the user needs to launch the `turtlebot3_robot.launch` file using
+	
 	```
 	roslaunch turtlebot3_bringup turtlebot3_robot.launch
 	```
