@@ -30,7 +30,7 @@ In order to install the ROS package for gas sensing using a turtlebot3 equipped 
 
 2. Change directory to the `src` folder in your catkin workspace `catkin_ws`
 
-3.  Clone the ROS package to interface and publish the COZIR-AH sensor
+3. Clone the ROS package to interface and publish the COZIR-AH sensor
 	```
 	git clone https://github.com/LU-Centre-for-Autonomous-Systems/ros-cozir-co2sensor.git
 	```
@@ -65,4 +65,8 @@ In order to run the scripts/launch files from the previously cloned ROS packages
 
 # User Instructions
 
-
+In order to launch a turtlebot3 equipped with a COZIR-A co2 sensor and RP-LIDAR, the user needs to launch the `turtlebot3_robot.launch` file using
+	```
+	roslaunch turtlebot3_bringup turtlebot3_robot.launch
+	```
+	
