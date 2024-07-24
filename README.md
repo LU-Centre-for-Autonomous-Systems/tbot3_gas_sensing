@@ -66,6 +66,12 @@ where `baudrate` is 115200 for RP-Lidar model A2M6 or A2M8 and 256000 for model 
 # User Instructions
 
 In order to launch a turtlebot3 equipped with a COZIR-A co2 sensor and RP-LIDAR, the user needs to launch the `turtlebot3_robot.launch` file using
+
+# Robot Upstart Script
+
+```
+rosrun robot_upstart install $ROS_PROJECT/launch/turtlebot3_robot.launch --job $ROS_PROJECT --interface wlan0 --user ubuntu --master http://<MASTER IP>:11311 --logdir ~/.ros/log/upstart --symlink
+```
 	
 ```
 roslaunch turtlebot3_bringup turtlebot3_robot.launch
