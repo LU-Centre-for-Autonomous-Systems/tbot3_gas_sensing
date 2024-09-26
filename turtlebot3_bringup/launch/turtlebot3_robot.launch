@@ -13,8 +13,11 @@
       <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
       <arg name="anglecomp" value="true"/>
     </include>
+    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_remote.launch">
+      <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
+    </include>
     <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
-    <node pkg="tf" type="static_transform_publisher" name="static_tf_foot2scan" args="0 0 0 0 0 0 1 $(optenv bot_ns)/base_foorprint $(optenv bot_ns)/base_scan 10"/>
+    <!--node pkg="tf" type="static_transform_publisher" name="static_tf_foot2scan" args="0 0 0 0 0 0 1 $(optenv bot_ns)/base_foorprint $(optenv bot_ns)/base_scan 10"/-->
     <node pkg="cozir_ros" type="cozirSensor.py" name="cozirSensor" output="screen" args="'filtered' 16"/> 
   </group>
 
@@ -26,8 +29,11 @@
       <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
       <arg name="anglecomp" value="true"/>
     </include>
+    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_remote.launch">
+      <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
+    </include>
     <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
-    <node pkg="tf" type="static_transform_publisher" name="static_tf_foot2scan" args="0 0 0 0 0 0 1 $(optenv bot_ns)/base_footprint $(optenv bot_ns)/base_scan 10"/>
+    <!--node pkg="tf" type="static_transform_publisher" name="static_tf_foot2scan" args="0 0 0 0 0 0 1 $(optenv bot_ns)/base_footprint $(optenv bot_ns)/base_scan 10"/-->
     <node pkg="cozir_ros" type="cozirSensor.py" name="cozirSensor" output="screen" args="'filtered' 16"/>
   </group>
 </launch>
